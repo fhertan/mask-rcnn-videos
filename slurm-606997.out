@@ -1,0 +1,655 @@
+running build_ext
+building 'utils.cython_bbox' extension
+creating build
+creating build/temp.linux-x86_64-3.7
+creating build/temp.linux-x86_64-3.7/utils
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/licensed/anaconda3/5.3.0/lib/python3.7/site-packages/numpy/core/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c utils/cython_bbox.c -o build/temp.linux-x86_64-3.7/utils/cython_bbox.o -Wno-cpp
+creating build/lib.linux-x86_64-3.7
+creating build/lib.linux-x86_64-3.7/utils
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.7/utils/cython_bbox.o -o build/lib.linux-x86_64-3.7/utils/cython_bbox.cpython-37m-x86_64-linux-gnu.so
+building 'utils.cython_nms' extension
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/licensed/anaconda3/5.3.0/lib/python3.7/site-packages/numpy/core/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c utils/cython_nms.c -o build/temp.linux-x86_64-3.7/utils/cython_nms.o -Wno-cpp
+utils/cython_nms.c: In function ‘__pyx_pf_5utils_10cython_nms_2soft_nms’:
+utils/cython_nms.c:3374:34: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       __pyx_t_11 = ((__pyx_v_pos < __pyx_v_N) != 0);
+                                  ^
+utils/cython_nms.c:3885:34: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       __pyx_t_11 = ((__pyx_v_pos < __pyx_v_N) != 0);
+                                  ^
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.7/utils/cython_nms.o -o build/lib.linux-x86_64-3.7/utils/cython_nms.cpython-37m-x86_64-linux-gnu.so
+copying build/lib.linux-x86_64-3.7/utils/cython_bbox.cpython-37m-x86_64-linux-gnu.so -> utils
+copying build/lib.linux-x86_64-3.7/utils/cython_nms.cpython-37m-x86_64-linux-gnu.so -> utils
+Compiling nms kernels by nvcc...
+Including CUDA code.
+/home/fhertan/mask-rcnn-videos/lib/model/nms
+['/home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda_kernel.cu.o']
+generating /tmp/tmpli8w1sa2/_nms.c
+setting the current directory to '/tmp/tmpli8w1sa2'
+running build_ext
+building '_nms' extension
+creating home
+creating home/fhertan
+creating home/fhertan/mask-rcnn-videos
+creating home/fhertan/mask-rcnn-videos/lib
+creating home/fhertan/mask-rcnn-videos/lib/model
+creating home/fhertan/mask-rcnn-videos/lib/model/nms
+creating home/fhertan/mask-rcnn-videos/lib/model/nms/src
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c _nms.c -o ./_nms.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda.c -o ./home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda.o -std=c99
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ ./_nms.o ./home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda.o /home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda_kernel.cu.o -o ./_nms.so
+Compiling roi pooling kernels by nvcc...
+Including CUDA code.
+/home/fhertan/mask-rcnn-videos/lib/model/roi_pooling
+generating /tmp/tmp8o0k6eoq/_roi_pooling.c
+setting the current directory to '/tmp/tmp8o0k6eoq'
+running build_ext
+building '_roi_pooling' extension
+creating home
+creating home/fhertan
+creating home/fhertan/mask-rcnn-videos
+creating home/fhertan/mask-rcnn-videos/lib
+creating home/fhertan/mask-rcnn-videos/lib/model
+creating home/fhertan/mask-rcnn-videos/lib/model/roi_pooling
+creating home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c _roi_pooling.c -o ./_roi_pooling.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling.c -o ./home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling_cuda.c -o ./home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling_cuda.o -std=c99
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ ./_roi_pooling.o ./home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling.o ./home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling_cuda.o /home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling.cu.o -o ./_roi_pooling.so
+Compiling roi crop kernels by nvcc...
+Including CUDA code.
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop
+generating /tmp/tmph8yysn2i/_roi_crop.c
+setting the current directory to '/tmp/tmph8yysn2i'
+running build_ext
+building '_roi_crop' extension
+creating home
+creating home/fhertan
+creating home/fhertan/mask-rcnn-videos
+creating home/fhertan/mask-rcnn-videos/lib
+creating home/fhertan/mask-rcnn-videos/lib/model
+creating home/fhertan/mask-rcnn-videos/lib/model/roi_crop
+creating home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c _roi_crop.c -o ./_roi_crop.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c -o ./home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.o -std=c99
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c: In function ‘BilinearSamplerBHWD_updateGradInput’:
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:190:14: warning: unused variable ‘inBottomRight’ [-Wunused-variable]
+         real inBottomRight=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:189:14: warning: unused variable ‘inBottomLeft’ [-Wunused-variable]
+         real inBottomLeft=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:188:14: warning: unused variable ‘inTopRight’ [-Wunused-variable]
+         real inTopRight=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:187:14: warning: unused variable ‘inTopLeft’ [-Wunused-variable]
+         real inTopLeft=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:186:14: warning: unused variable ‘v’ [-Wunused-variable]
+         real v=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c: In function ‘BilinearSamplerBCHW_updateGradInput’:
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:440:14: warning: unused variable ‘inBottomRight’ [-Wunused-variable]
+         real inBottomRight=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:439:14: warning: unused variable ‘inBottomLeft’ [-Wunused-variable]
+         real inBottomLeft=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:438:14: warning: unused variable ‘inTopRight’ [-Wunused-variable]
+         real inTopRight=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:437:14: warning: unused variable ‘inTopLeft’ [-Wunused-variable]
+         real inTopLeft=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:436:14: warning: unused variable ‘v’ [-Wunused-variable]
+         real v=0;
+              ^
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop_cuda.c -o ./home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop_cuda.o -std=c99
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ ./_roi_crop.o ./home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.o ./home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop_cuda.o /home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop_cuda_kernel.cu.o -o ./_roi_crop.so
+Compiling roi align kernels by nvcc...
+Including CUDA code.
+/home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align
+generating /tmp/tmpp986zznc/_roi_align.c
+setting the current directory to '/tmp/tmpp986zznc'
+running build_ext
+building '_roi_align' extension
+creating home
+creating home/fhertan
+creating home/fhertan/mask-rcnn-videos
+creating home/fhertan/mask-rcnn-videos/lib
+creating home/fhertan/mask-rcnn-videos/lib/modeling
+creating home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom
+creating home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align
+creating home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c _roi_align.c -o ./_roi_align.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src/roi_align_cuda.c -o ./home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src/roi_align_cuda.o -std=c99
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ ./_roi_align.o ./home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src/roi_align_cuda.o /home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src/roi_align_kernel.cu.o -o ./_roi_align.so
+INFO test_net.py:  68: Called with args:
+INFO test_net.py:  69: Namespace(cfg_file='/home/fhertan/mask-rcnn-videos/configs/baselines/e2e_mask_rcnn_R-50-C4_1x.yaml', dataset='coco2017', load_ckpt='/scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/Dec03-01-31-44_adroit-h11g2_step/config_and_args.pkl', load_detectron=None, multi_gpu_testing=True, output_dir=None, range=None, set_cfgs=[], vis=False)
+INFO test_net.py:  79: Automatically set output directory to /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test
+INFO test_net.py: 100: Testing with config:
+INFO test_net.py: 101: {'BBOX_XFORM_CLIP': 4.135166556742356,
+ 'CROP_RESIZE_WITH_MAX_POOL': True,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/fhertan/mask-rcnn-videos/data',
+ 'DATA_LOADER': {'NUM_THREADS': 4},
+ 'DEBUG': False,
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXPECTED_RESULTS': [],
+ 'EXPECTED_RESULTS_ATOL': 0.005,
+ 'EXPECTED_RESULTS_EMAIL': '',
+ 'EXPECTED_RESULTS_RTOL': 0.1,
+ 'FAST_RCNN': {'CONV_HEAD_DIM': 256,
+               'MLP_HEAD_DIM': 1024,
+               'NUM_STACKED_CONVS': 4,
+               'ROI_BOX_HEAD': 'ResNet.ResNet_roi_conv5_head',
+               'ROI_XFORM_METHOD': 'RoIAlign',
+               'ROI_XFORM_RESOLUTION': 14,
+               'ROI_XFORM_SAMPLING_RATIO': 0},
+ 'FPN': {'COARSEST_STRIDE': 32,
+         'DIM': 256,
+         'EXTRA_CONV_LEVELS': False,
+         'FPN_ON': False,
+         'MULTILEVEL_ROIS': False,
+         'MULTILEVEL_RPN': False,
+         'ROI_CANONICAL_LEVEL': 4,
+         'ROI_CANONICAL_SCALE': 224,
+         'ROI_MAX_LEVEL': 5,
+         'ROI_MIN_LEVEL': 2,
+         'RPN_ANCHOR_START_SIZE': 32,
+         'RPN_ASPECT_RATIOS': (0.5, 1, 2),
+         'RPN_COLLECT_SCALE': 1,
+         'RPN_MAX_LEVEL': 6,
+         'RPN_MIN_LEVEL': 2,
+         'USE_GN': False,
+         'ZERO_INIT_LATERAL': False},
+ 'GROUP_NORM': {'DIM_PER_GP': -1, 'EPSILON': 1e-05, 'NUM_GROUPS': 32},
+ 'KRCNN': {'CONV_HEAD_DIM': 256,
+           'CONV_HEAD_KERNEL': 3,
+           'CONV_INIT': 'GaussianFill',
+           'DECONV_DIM': 256,
+           'DECONV_KERNEL': 4,
+           'DILATION': 1,
+           'HEATMAP_SIZE': -1,
+           'INFERENCE_MIN_SIZE': 0,
+           'KEYPOINT_CONFIDENCE': 'bbox',
+           'LOSS_WEIGHT': 1.0,
+           'MIN_KEYPOINT_COUNT_FOR_VALID_MINIBATCH': 20,
+           'NMS_OKS': False,
+           'NORMALIZE_BY_VISIBLE_KEYPOINTS': True,
+           'NUM_KEYPOINTS': -1,
+           'NUM_STACKED_CONVS': 8,
+           'ROI_KEYPOINTS_HEAD': '',
+           'ROI_XFORM_METHOD': 'RoIAlign',
+           'ROI_XFORM_RESOLUTION': 7,
+           'ROI_XFORM_SAMPLING_RATIO': 0,
+           'UP_SCALE': -1,
+           'USE_DECONV': False,
+           'USE_DECONV_OUTPUT': False},
+ 'MATLAB': 'matlab',
+ 'MODEL': {'BBOX_REG_WEIGHTS': (10.0, 10.0, 5.0, 5.0),
+           'CLS_AGNOSTIC_BBOX_REG': False,
+           'CONV_BODY': 'ResNet.ResNet50_conv4_body',
+           'FASTER_RCNN': True,
+           'KEYPOINTS_ON': False,
+           'LOAD_IMAGENET_PRETRAINED_WEIGHTS': True,
+           'MASK_ON': True,
+           'NUM_CLASSES': 81,
+           'RPN_ONLY': False,
+           'SHARE_RES5': True,
+           'TYPE': 'generalized_rcnn',
+           'UNSUPERVISED_POSE': False},
+ 'MRCNN': {'CLS_SPECIFIC_MASK': True,
+           'CONV_INIT': 'MSRAFill',
+           'DILATION': 1,
+           'DIM_REDUCED': 256,
+           'MEMORY_EFFICIENT_LOSS': True,
+           'RESOLUTION': 14,
+           'ROI_MASK_HEAD': 'mask_rcnn_heads.mask_rcnn_fcn_head_v0upshare',
+           'ROI_XFORM_METHOD': 'RoIAlign',
+           'ROI_XFORM_RESOLUTION': 14,
+           'ROI_XFORM_SAMPLING_RATIO': 0,
+           'THRESH_BINARIZE': 0.5,
+           'UPSAMPLE_RATIO': 1,
+           'USE_FC_OUTPUT': False,
+           'WEIGHT_LOSS_MASK': 1.0},
+ 'NUM_GPUS': 8,
+ 'OUTPUT_DIR': 'Outputs',
+ 'PIXEL_MEANS': array([[[102.9801, 115.9465, 122.7717]]]),
+ 'POOLING_MODE': 'crop',
+ 'POOLING_SIZE': 7,
+ 'PYTORCH_VERSION_LESS_THAN_040': False,
+ 'RESNETS': {'FREEZE_AT': 2,
+             'IMAGENET_PRETRAINED_WEIGHTS': 'data/pretrained_model/resnet50_caffe.pth',
+             'NUM_GROUPS': 1,
+             'RES5_DILATION': 1,
+             'SHORTCUT_FUNC': 'basic_bn_shortcut',
+             'STEM_FUNC': 'basic_bn_stem',
+             'STRIDE_1X1': True,
+             'TRANS_FUNC': 'bottleneck_transformation',
+             'USE_GN': False,
+             'WIDTH_PER_GROUP': 64},
+ 'RETINANET': {'ANCHOR_SCALE': 4,
+               'ASPECT_RATIOS': (0.5, 1.0, 2.0),
+               'BBOX_REG_BETA': 0.11,
+               'BBOX_REG_WEIGHT': 1.0,
+               'CLASS_SPECIFIC_BBOX': False,
+               'INFERENCE_TH': 0.05,
+               'LOSS_ALPHA': 0.25,
+               'LOSS_GAMMA': 2.0,
+               'NEGATIVE_OVERLAP': 0.4,
+               'NUM_CONVS': 4,
+               'POSITIVE_OVERLAP': 0.5,
+               'PRE_NMS_TOP_N': 1000,
+               'PRIOR_PROB': 0.01,
+               'RETINANET_ON': False,
+               'SCALES_PER_OCTAVE': 3,
+               'SHARE_CLS_BBOX_TOWER': False,
+               'SOFTMAX': False},
+ 'RFCN': {'PS_GRID_SIZE': 3},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/fhertan/mask-rcnn-videos',
+ 'RPN': {'ASPECT_RATIOS': (0.5, 1, 2),
+         'CLS_ACTIVATION': 'sigmoid',
+         'OUT_DIM': 512,
+         'OUT_DIM_AS_IN_DIM': True,
+         'RPN_ON': True,
+         'SIZES': (32, 64, 128, 256, 512),
+         'STRIDE': 16},
+ 'SOLVER': {'BASE_LR': 0.01,
+            'BIAS_DOUBLE_LR': True,
+            'BIAS_WEIGHT_DECAY': False,
+            'GAMMA': 0.1,
+            'LOG_LR_CHANGE_THRESHOLD': 1.1,
+            'LRS': [],
+            'LR_POLICY': 'steps_with_decay',
+            'MAX_ITER': 180000,
+            'MOMENTUM': 0.9,
+            'SCALE_MOMENTUM': True,
+            'SCALE_MOMENTUM_THRESHOLD': 1.1,
+            'STEPS': [0, 120000, 160000],
+            'STEP_SIZE': 30000,
+            'TYPE': 'SGD',
+            'WARM_UP_FACTOR': 0.3333333333333333,
+            'WARM_UP_ITERS': 500,
+            'WARM_UP_METHOD': 'linear',
+            'WEIGHT_DECAY': 0.0001,
+            'WEIGHT_DECAY_GN': 0.0},
+ 'TEST': {'BBOX_AUG': {'AREA_TH_HI': 32400,
+                       'AREA_TH_LO': 2500,
+                       'ASPECT_RATIOS': (),
+                       'ASPECT_RATIO_H_FLIP': False,
+                       'COORD_HEUR': 'UNION',
+                       'ENABLED': False,
+                       'H_FLIP': False,
+                       'MAX_SIZE': 4000,
+                       'SCALES': (),
+                       'SCALE_H_FLIP': False,
+                       'SCALE_SIZE_DEP': False,
+                       'SCORE_HEUR': 'UNION'},
+          'BBOX_REG': True,
+          'BBOX_VOTE': {'ENABLED': False,
+                        'SCORING_METHOD': 'ID',
+                        'SCORING_METHOD_BETA': 1.0,
+                        'VOTE_TH': 0.8},
+          'COMPETITION_MODE': True,
+          'DATASETS': ('coco_2017_val',),
+          'DETECTIONS_PER_IM': 100,
+          'FORCE_JSON_DATASET_EVAL': False,
+          'KPS_AUG': {'AREA_TH': 32400,
+                      'ASPECT_RATIOS': (),
+                      'ASPECT_RATIO_H_FLIP': False,
+                      'ENABLED': False,
+                      'HEUR': 'HM_AVG',
+                      'H_FLIP': False,
+                      'MAX_SIZE': 4000,
+                      'SCALES': (),
+                      'SCALE_H_FLIP': False,
+                      'SCALE_SIZE_DEP': False},
+          'MASK_AUG': {'AREA_TH': 32400,
+                       'ASPECT_RATIOS': (),
+                       'ASPECT_RATIO_H_FLIP': False,
+                       'ENABLED': False,
+                       'HEUR': 'SOFT_AVG',
+                       'H_FLIP': False,
+                       'MAX_SIZE': 4000,
+                       'SCALES': (),
+                       'SCALE_H_FLIP': False,
+                       'SCALE_SIZE_DEP': False},
+          'MAX_SIZE': 1333,
+          'NMS': 0.5,
+          'PRECOMPUTED_PROPOSALS': False,
+          'PROPOSAL_FILES': (),
+          'PROPOSAL_LIMIT': 2000,
+          'RPN_MIN_SIZE': 0,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 1000,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'SCALE': 800,
+          'SCORE_THRESH': 0.05,
+          'SOFT_NMS': {'ENABLED': False, 'METHOD': 'linear', 'SIGMA': 0.5}},
+ 'TRAIN': {'ASPECT_CROPPING': False,
+           'ASPECT_GROUPING': True,
+           'ASPECT_HI': 2,
+           'ASPECT_LO': 0.5,
+           'BATCH_SIZE_PER_IM': 512,
+           'BBOX_INSIDE_WEIGHTS': (1.0, 1.0, 1.0, 1.0),
+           'BBOX_NORMALIZE_MEANS': (0.0, 0.0, 0.0, 0.0),
+           'BBOX_NORMALIZE_STDS': (0.1, 0.1, 0.2, 0.2),
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': False,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'CROWD_FILTER_THRESH': 0.7,
+           'DATASETS': (),
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'FREEZE_CONV_BODY': False,
+           'GT_MIN_AREA': -1,
+           'IMS_PER_BATCH': 1,
+           'MAX_SIZE': 1333,
+           'PROPOSAL_FILES': (),
+           'RPN_BATCH_SIZE_PER_IM': 256,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 0,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'RPN_STRADDLE_THRESH': 0,
+           'SCALES': (800,),
+           'SNAPSHOT_ITERS': 20000,
+           'USE_FLIPPED': True},
+ 'VIS': False,
+ 'VIS_TH': 0.9}
+loading annotations into memory...
+Done (t=0.62s)
+creating index...
+index created!
+INFO subprocess.py:  87: detection range command 0: python /home/fhertan/mask-rcnn-videos/tools/test_net.py --range 0 1250 --cfg /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test/detection_range_config.yaml --set TEST.DATASETS '("coco_2017_val",)' --output_dir /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test --load_ckpt /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/Dec03-01-31-44_adroit-h11g2_step/config_and_args.pkl
+INFO subprocess.py:  87: detection range command 1: python /home/fhertan/mask-rcnn-videos/tools/test_net.py --range 1250 2500 --cfg /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test/detection_range_config.yaml --set TEST.DATASETS '("coco_2017_val",)' --output_dir /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test --load_ckpt /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/Dec03-01-31-44_adroit-h11g2_step/config_and_args.pkl
+INFO subprocess.py:  87: detection range command 2: python /home/fhertan/mask-rcnn-videos/tools/test_net.py --range 2500 3750 --cfg /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test/detection_range_config.yaml --set TEST.DATASETS '("coco_2017_val",)' --output_dir /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test --load_ckpt /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/Dec03-01-31-44_adroit-h11g2_step/config_and_args.pkl
+INFO subprocess.py:  87: detection range command 3: python /home/fhertan/mask-rcnn-videos/tools/test_net.py --range 3750 5000 --cfg /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test/detection_range_config.yaml --set TEST.DATASETS '("coco_2017_val",)' --output_dir /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test --load_ckpt /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/Dec03-01-31-44_adroit-h11g2_step/config_and_args.pkl
+INFO subprocess.py: 127: # ---------------------------------------------------------------------------- #
+INFO subprocess.py: 129: stdout of subprocess 0 with range [1, 1250]
+INFO subprocess.py: 131: # ---------------------------------------------------------------------------- #
+INFO test_net.py:  68: Called with args:
+INFO test_net.py:  69: Namespace(cfg_file='/scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test/detection_range_config.yaml', dataset=None, load_ckpt='/scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/Dec03-01-31-44_adroit-h11g2_step/config_and_args.pkl', load_detectron=None, multi_gpu_testing=False, output_dir='/scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/test', range=[0, 1250], set_cfgs=['TEST.DATASETS', '("coco_2017_val",)'], vis=False)
+INFO test_net.py: 100: Testing with config:
+INFO test_net.py: 101: {'BBOX_XFORM_CLIP': 4.135166556742356,
+ 'CROP_RESIZE_WITH_MAX_POOL': True,
+ 'CUDA': False,
+ 'DATA_DIR': '/home/fhertan/mask-rcnn-videos/data',
+ 'DATA_LOADER': {'NUM_THREADS': 4},
+ 'DEBUG': False,
+ 'DEDUP_BOXES': 0.0625,
+ 'EPS': 1e-14,
+ 'EXPECTED_RESULTS': [],
+ 'EXPECTED_RESULTS_ATOL': 0.005,
+ 'EXPECTED_RESULTS_EMAIL': '',
+ 'EXPECTED_RESULTS_RTOL': 0.1,
+ 'FAST_RCNN': {'CONV_HEAD_DIM': 256,
+               'MLP_HEAD_DIM': 1024,
+               'NUM_STACKED_CONVS': 4,
+               'ROI_BOX_HEAD': 'ResNet.ResNet_roi_conv5_head',
+               'ROI_XFORM_METHOD': 'RoIAlign',
+               'ROI_XFORM_RESOLUTION': 14,
+               'ROI_XFORM_SAMPLING_RATIO': 0},
+ 'FPN': {'COARSEST_STRIDE': 32,
+         'DIM': 256,
+         'EXTRA_CONV_LEVELS': False,
+         'FPN_ON': False,
+         'MULTILEVEL_ROIS': False,
+         'MULTILEVEL_RPN': False,
+         'ROI_CANONICAL_LEVEL': 4,
+         'ROI_CANONICAL_SCALE': 224,
+         'ROI_MAX_LEVEL': 5,
+         'ROI_MIN_LEVEL': 2,
+         'RPN_ANCHOR_START_SIZE': 32,
+         'RPN_ASPECT_RATIOS': (0.5, 1, 2),
+         'RPN_COLLECT_SCALE': 1,
+         'RPN_MAX_LEVEL': 6,
+         'RPN_MIN_LEVEL': 2,
+         'USE_GN': False,
+         'ZERO_INIT_LATERAL': False},
+ 'GROUP_NORM': {'DIM_PER_GP': -1, 'EPSILON': 1e-05, 'NUM_GROUPS': 32},
+ 'KRCNN': {'CONV_HEAD_DIM': 256,
+           'CONV_HEAD_KERNEL': 3,
+           'CONV_INIT': 'GaussianFill',
+           'DECONV_DIM': 256,
+           'DECONV_KERNEL': 4,
+           'DILATION': 1,
+           'HEATMAP_SIZE': -1,
+           'INFERENCE_MIN_SIZE': 0,
+           'KEYPOINT_CONFIDENCE': 'bbox',
+           'LOSS_WEIGHT': 1.0,
+           'MIN_KEYPOINT_COUNT_FOR_VALID_MINIBATCH': 20,
+           'NMS_OKS': False,
+           'NORMALIZE_BY_VISIBLE_KEYPOINTS': True,
+           'NUM_KEYPOINTS': -1,
+           'NUM_STACKED_CONVS': 8,
+           'ROI_KEYPOINTS_HEAD': '',
+           'ROI_XFORM_METHOD': 'RoIAlign',
+           'ROI_XFORM_RESOLUTION': 7,
+           'ROI_XFORM_SAMPLING_RATIO': 0,
+           'UP_SCALE': -1,
+           'USE_DECONV': False,
+           'USE_DECONV_OUTPUT': False},
+ 'MATLAB': 'matlab',
+ 'MODEL': {'BBOX_REG_WEIGHTS': (10.0, 10.0, 5.0, 5.0),
+           'CLS_AGNOSTIC_BBOX_REG': False,
+           'CONV_BODY': 'ResNet.ResNet50_conv4_body',
+           'FASTER_RCNN': True,
+           'KEYPOINTS_ON': False,
+           'LOAD_IMAGENET_PRETRAINED_WEIGHTS': True,
+           'MASK_ON': True,
+           'NUM_CLASSES': 81,
+           'RPN_ONLY': False,
+           'SHARE_RES5': True,
+           'TYPE': 'generalized_rcnn',
+           'UNSUPERVISED_POSE': False},
+ 'MRCNN': {'CLS_SPECIFIC_MASK': True,
+           'CONV_INIT': 'MSRAFill',
+           'DILATION': 1,
+           'DIM_REDUCED': 256,
+           'MEMORY_EFFICIENT_LOSS': True,
+           'RESOLUTION': 14,
+           'ROI_MASK_HEAD': 'mask_rcnn_heads.mask_rcnn_fcn_head_v0upshare',
+           'ROI_XFORM_METHOD': 'RoIAlign',
+           'ROI_XFORM_RESOLUTION': 14,
+           'ROI_XFORM_SAMPLING_RATIO': 0,
+           'THRESH_BINARIZE': 0.5,
+           'UPSAMPLE_RATIO': 1,
+           'USE_FC_OUTPUT': False,
+           'WEIGHT_LOSS_MASK': 1.0},
+ 'NUM_GPUS': 8,
+ 'OUTPUT_DIR': 'Outputs',
+ 'PIXEL_MEANS': array([[[102.9801, 115.9465, 122.7717]]]),
+ 'POOLING_MODE': 'crop',
+ 'POOLING_SIZE': 7,
+ 'PYTORCH_VERSION_LESS_THAN_040': False,
+ 'RESNETS': {'FREEZE_AT': 2,
+             'IMAGENET_PRETRAINED_WEIGHTS': 'data/pretrained_model/resnet50_caffe.pth',
+             'NUM_GROUPS': 1,
+             'RES5_DILATION': 1,
+             'SHORTCUT_FUNC': 'basic_bn_shortcut',
+             'STEM_FUNC': 'basic_bn_stem',
+             'STRIDE_1X1': True,
+             'TRANS_FUNC': 'bottleneck_transformation',
+             'USE_GN': False,
+             'WIDTH_PER_GROUP': 64},
+ 'RETINANET': {'ANCHOR_SCALE': 4,
+               'ASPECT_RATIOS': (0.5, 1.0, 2.0),
+               'BBOX_REG_BETA': 0.11,
+               'BBOX_REG_WEIGHT': 1.0,
+               'CLASS_SPECIFIC_BBOX': False,
+               'INFERENCE_TH': 0.05,
+               'LOSS_ALPHA': 0.25,
+               'LOSS_GAMMA': 2.0,
+               'NEGATIVE_OVERLAP': 0.4,
+               'NUM_CONVS': 4,
+               'POSITIVE_OVERLAP': 0.5,
+               'PRE_NMS_TOP_N': 1000,
+               'PRIOR_PROB': 0.01,
+               'RETINANET_ON': False,
+               'SCALES_PER_OCTAVE': 3,
+               'SHARE_CLS_BBOX_TOWER': False,
+               'SOFTMAX': False},
+ 'RFCN': {'PS_GRID_SIZE': 3},
+ 'RNG_SEED': 3,
+ 'ROOT_DIR': '/home/fhertan/mask-rcnn-videos',
+ 'RPN': {'ASPECT_RATIOS': (0.5, 1, 2),
+         'CLS_ACTIVATION': 'sigmoid',
+         'OUT_DIM': 512,
+         'OUT_DIM_AS_IN_DIM': True,
+         'RPN_ON': True,
+         'SIZES': (32, 64, 128, 256, 512),
+         'STRIDE': 16},
+ 'SOLVER': {'BASE_LR': 0.01,
+            'BIAS_DOUBLE_LR': True,
+            'BIAS_WEIGHT_DECAY': False,
+            'GAMMA': 0.1,
+            'LOG_LR_CHANGE_THRESHOLD': 1.1,
+            'LRS': [],
+            'LR_POLICY': 'steps_with_decay',
+            'MAX_ITER': 180000,
+            'MOMENTUM': 0.9,
+            'SCALE_MOMENTUM': True,
+            'SCALE_MOMENTUM_THRESHOLD': 1.1,
+            'STEPS': [0, 120000, 160000],
+            'STEP_SIZE': 30000,
+            'TYPE': 'SGD',
+            'WARM_UP_FACTOR': 0.3333333333333333,
+            'WARM_UP_ITERS': 500,
+            'WARM_UP_METHOD': 'linear',
+            'WEIGHT_DECAY': 0.0001,
+            'WEIGHT_DECAY_GN': 0.0},
+ 'TEST': {'BBOX_AUG': {'AREA_TH_HI': 32400,
+                       'AREA_TH_LO': 2500,
+                       'ASPECT_RATIOS': (),
+                       'ASPECT_RATIO_H_FLIP': False,
+                       'COORD_HEUR': 'UNION',
+                       'ENABLED': False,
+                       'H_FLIP': False,
+                       'MAX_SIZE': 4000,
+                       'SCALES': (),
+                       'SCALE_H_FLIP': False,
+                       'SCALE_SIZE_DEP': False,
+                       'SCORE_HEUR': 'UNION'},
+          'BBOX_REG': True,
+          'BBOX_VOTE': {'ENABLED': False,
+                        'SCORING_METHOD': 'ID',
+                        'SCORING_METHOD_BETA': 1.0,
+                        'VOTE_TH': 0.8},
+          'COMPETITION_MODE': True,
+          'DATASETS': ('coco_2017_val',),
+          'DETECTIONS_PER_IM': 100,
+          'FORCE_JSON_DATASET_EVAL': False,
+          'KPS_AUG': {'AREA_TH': 32400,
+                      'ASPECT_RATIOS': (),
+                      'ASPECT_RATIO_H_FLIP': False,
+                      'ENABLED': False,
+                      'HEUR': 'HM_AVG',
+                      'H_FLIP': False,
+                      'MAX_SIZE': 4000,
+                      'SCALES': (),
+                      'SCALE_H_FLIP': False,
+                      'SCALE_SIZE_DEP': False},
+          'MASK_AUG': {'AREA_TH': 32400,
+                       'ASPECT_RATIOS': (),
+                       'ASPECT_RATIO_H_FLIP': False,
+                       'ENABLED': False,
+                       'HEUR': 'SOFT_AVG',
+                       'H_FLIP': False,
+                       'MAX_SIZE': 4000,
+                       'SCALES': (),
+                       'SCALE_H_FLIP': False,
+                       'SCALE_SIZE_DEP': False},
+          'MAX_SIZE': 1333,
+          'NMS': 0.5,
+          'PRECOMPUTED_PROPOSALS': False,
+          'PROPOSAL_FILES': (),
+          'PROPOSAL_LIMIT': 2000,
+          'RPN_MIN_SIZE': 0,
+          'RPN_NMS_THRESH': 0.7,
+          'RPN_POST_NMS_TOP_N': 1000,
+          'RPN_PRE_NMS_TOP_N': 6000,
+          'SCALE': 800,
+          'SCORE_THRESH': 0.05,
+          'SOFT_NMS': {'ENABLED': False, 'METHOD': 'linear', 'SIGMA': 0.5}},
+ 'TRAIN': {'ASPECT_CROPPING': False,
+           'ASPECT_GROUPING': True,
+           'ASPECT_HI': 2,
+           'ASPECT_LO': 0.5,
+           'BATCH_SIZE_PER_IM': 512,
+           'BBOX_INSIDE_WEIGHTS': (1.0, 1.0, 1.0, 1.0),
+           'BBOX_NORMALIZE_MEANS': (0.0, 0.0, 0.0, 0.0),
+           'BBOX_NORMALIZE_STDS': (0.1, 0.1, 0.2, 0.2),
+           'BBOX_NORMALIZE_TARGETS': True,
+           'BBOX_NORMALIZE_TARGETS_PRECOMPUTED': False,
+           'BBOX_THRESH': 0.5,
+           'BG_THRESH_HI': 0.5,
+           'BG_THRESH_LO': 0.0,
+           'CROWD_FILTER_THRESH': 0.7,
+           'DATASETS': (),
+           'FG_FRACTION': 0.25,
+           'FG_THRESH': 0.5,
+           'FREEZE_CONV_BODY': False,
+           'GT_MIN_AREA': -1,
+           'IMS_PER_BATCH': 1,
+           'MAX_SIZE': 1333,
+           'PROPOSAL_FILES': (),
+           'RPN_BATCH_SIZE_PER_IM': 256,
+           'RPN_FG_FRACTION': 0.5,
+           'RPN_MIN_SIZE': 0,
+           'RPN_NEGATIVE_OVERLAP': 0.3,
+           'RPN_NMS_THRESH': 0.7,
+           'RPN_POSITIVE_OVERLAP': 0.7,
+           'RPN_POST_NMS_TOP_N': 2000,
+           'RPN_PRE_NMS_TOP_N': 12000,
+           'RPN_STRADDLE_THRESH': 0,
+           'SCALES': (800,),
+           'SNAPSHOT_ITERS': 20000,
+           'USE_FLIPPED': True},
+ 'VIS': False,
+ 'VIS_TH': 0.9}
+loading annotations into memory...
+Done (t=0.53s)
+creating index...
+index created!
+INFO test_engine.py: 330: loading checkpoint /scratch/network/fhertan/Outputs/e2e_mask_rcnn_R-50-C4_1x/Dec03-01-31-44_adroit-h11g2_step/config_and_args.pkl
+Traceback (most recent call last):
+  File "/home/fhertan/mask-rcnn-videos/tools/test_net.py", line 112, in <module>
+    check_expected_results=True)
+  File "/home/fhertan/mask-rcnn-videos/lib/core/test_engine.py", line 128, in run_inference
+    all_results = result_getter()
+  File "/home/fhertan/mask-rcnn-videos/lib/core/test_engine.py", line 125, in result_getter
+    gpu_id=gpu_id
+  File "/home/fhertan/mask-rcnn-videos/lib/core/test_engine.py", line 232, in test_net
+    model = initialize_model_from_cfg(args, gpu_id=gpu_id)
+  File "/home/fhertan/mask-rcnn-videos/lib/core/test_engine.py", line 331, in initialize_model_from_cfg
+    checkpoint = torch.load(load_name, map_location=lambda storage, loc: storage)
+  File "/home/fhertan/.local/lib/python3.7/site-packages/torch/serialization.py", line 358, in load
+    return _load(f, map_location, pickle_module)
+  File "/home/fhertan/.local/lib/python3.7/site-packages/torch/serialization.py", line 534, in _load
+    raise RuntimeError("Invalid magic number; corrupt file?")
+RuntimeError: Invalid magic number; corrupt file?
+Traceback (most recent call last):
+  File "tools/test_net.py", line 112, in <module>
+    check_expected_results=True)
+  File "/home/fhertan/mask-rcnn-videos/lib/core/test_engine.py", line 128, in run_inference
+    all_results = result_getter()
+  File "/home/fhertan/mask-rcnn-videos/lib/core/test_engine.py", line 108, in result_getter
+    multi_gpu=multi_gpu_testing
+  File "/home/fhertan/mask-rcnn-videos/lib/core/test_engine.py", line 154, in test_net_on_dataset
+    args, dataset_name, proposal_file, num_images, output_dir
+  File "/home/fhertan/mask-rcnn-videos/lib/core/test_engine.py", line 186, in multi_gpu_test_net_on_dataset
+    args.load_ckpt, args.load_detectron, opts
+  File "/home/fhertan/mask-rcnn-videos/lib/utils/subprocess.py", line 107, in process_in_parallel
+    log_subprocess_output(i, p, output_dir, tag, start, end)
+  File "/home/fhertan/mask-rcnn-videos/lib/utils/subprocess.py", line 145, in log_subprocess_output
+    assert ret == 0, 'Range subprocess failed (exit code: {})'.format(ret)
+AssertionError: Range subprocess failed (exit code: 1)
+/var/spool/slurmd/job606997/slurm_script: line 19: $'\177': command not found

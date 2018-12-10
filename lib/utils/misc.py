@@ -19,7 +19,7 @@ def get_run_name():
 def get_output_dir(args, run_name):
     """ Get root output directory for each run """
     cfg_filename, _ = os.path.splitext(os.path.split(args.cfg_file)[1])
-    return os.path.join(cfg.OUTPUT_DIR, cfg_filename, run_name)
+    return os.path.join("/scratch/network/fhertan", cfg.OUTPUT_DIR, cfg_filename, run_name)
 
 
 IMG_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.ppm', '.bmp', '.pgm']

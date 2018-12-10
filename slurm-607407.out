@@ -1,0 +1,155 @@
+running build_ext
+building 'utils.cython_bbox' extension
+creating build
+creating build/temp.linux-x86_64-3.7
+creating build/temp.linux-x86_64-3.7/utils
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/licensed/anaconda3/5.3.0/lib/python3.7/site-packages/numpy/core/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c utils/cython_bbox.c -o build/temp.linux-x86_64-3.7/utils/cython_bbox.o -Wno-cpp
+creating build/lib.linux-x86_64-3.7
+creating build/lib.linux-x86_64-3.7/utils
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.7/utils/cython_bbox.o -o build/lib.linux-x86_64-3.7/utils/cython_bbox.cpython-37m-x86_64-linux-gnu.so
+building 'utils.cython_nms' extension
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/usr/licensed/anaconda3/5.3.0/lib/python3.7/site-packages/numpy/core/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c utils/cython_nms.c -o build/temp.linux-x86_64-3.7/utils/cython_nms.o -Wno-cpp
+utils/cython_nms.c: In function ‘__pyx_pf_5utils_10cython_nms_2soft_nms’:
+utils/cython_nms.c:3374:34: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       __pyx_t_11 = ((__pyx_v_pos < __pyx_v_N) != 0);
+                                  ^
+utils/cython_nms.c:3885:34: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+       __pyx_t_11 = ((__pyx_v_pos < __pyx_v_N) != 0);
+                                  ^
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ build/temp.linux-x86_64-3.7/utils/cython_nms.o -o build/lib.linux-x86_64-3.7/utils/cython_nms.cpython-37m-x86_64-linux-gnu.so
+copying build/lib.linux-x86_64-3.7/utils/cython_bbox.cpython-37m-x86_64-linux-gnu.so -> utils
+copying build/lib.linux-x86_64-3.7/utils/cython_nms.cpython-37m-x86_64-linux-gnu.so -> utils
+Compiling nms kernels by nvcc...
+Including CUDA code.
+/home/fhertan/mask-rcnn-videos/lib/model/nms
+['/home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda_kernel.cu.o']
+generating /tmp/tmpn4kfpzh3/_nms.c
+setting the current directory to '/tmp/tmpn4kfpzh3'
+running build_ext
+building '_nms' extension
+creating home
+creating home/fhertan
+creating home/fhertan/mask-rcnn-videos
+creating home/fhertan/mask-rcnn-videos/lib
+creating home/fhertan/mask-rcnn-videos/lib/model
+creating home/fhertan/mask-rcnn-videos/lib/model/nms
+creating home/fhertan/mask-rcnn-videos/lib/model/nms/src
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c _nms.c -o ./_nms.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda.c -o ./home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda.o -std=c99
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ ./_nms.o ./home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda.o /home/fhertan/mask-rcnn-videos/lib/model/nms/src/nms_cuda_kernel.cu.o -o ./_nms.so
+Compiling roi pooling kernels by nvcc...
+Including CUDA code.
+/home/fhertan/mask-rcnn-videos/lib/model/roi_pooling
+generating /tmp/tmprfpt5n2z/_roi_pooling.c
+setting the current directory to '/tmp/tmprfpt5n2z'
+running build_ext
+building '_roi_pooling' extension
+creating home
+creating home/fhertan
+creating home/fhertan/mask-rcnn-videos
+creating home/fhertan/mask-rcnn-videos/lib
+creating home/fhertan/mask-rcnn-videos/lib/model
+creating home/fhertan/mask-rcnn-videos/lib/model/roi_pooling
+creating home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c _roi_pooling.c -o ./_roi_pooling.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling.c -o ./home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling_cuda.c -o ./home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling_cuda.o -std=c99
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ ./_roi_pooling.o ./home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling.o ./home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling_cuda.o /home/fhertan/mask-rcnn-videos/lib/model/roi_pooling/src/roi_pooling.cu.o -o ./_roi_pooling.so
+Compiling roi crop kernels by nvcc...
+Including CUDA code.
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop
+generating /tmp/tmp6a4jzsl8/_roi_crop.c
+setting the current directory to '/tmp/tmp6a4jzsl8'
+running build_ext
+building '_roi_crop' extension
+creating home
+creating home/fhertan
+creating home/fhertan/mask-rcnn-videos
+creating home/fhertan/mask-rcnn-videos/lib
+creating home/fhertan/mask-rcnn-videos/lib/model
+creating home/fhertan/mask-rcnn-videos/lib/model/roi_crop
+creating home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c _roi_crop.c -o ./_roi_crop.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c -o ./home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.o -std=c99
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c: In function ‘BilinearSamplerBHWD_updateGradInput’:
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:190:14: warning: unused variable ‘inBottomRight’ [-Wunused-variable]
+         real inBottomRight=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:189:14: warning: unused variable ‘inBottomLeft’ [-Wunused-variable]
+         real inBottomLeft=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:188:14: warning: unused variable ‘inTopRight’ [-Wunused-variable]
+         real inTopRight=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:187:14: warning: unused variable ‘inTopLeft’ [-Wunused-variable]
+         real inTopLeft=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:186:14: warning: unused variable ‘v’ [-Wunused-variable]
+         real v=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c: In function ‘BilinearSamplerBCHW_updateGradInput’:
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:440:14: warning: unused variable ‘inBottomRight’ [-Wunused-variable]
+         real inBottomRight=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:439:14: warning: unused variable ‘inBottomLeft’ [-Wunused-variable]
+         real inBottomLeft=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:438:14: warning: unused variable ‘inTopRight’ [-Wunused-variable]
+         real inTopRight=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:437:14: warning: unused variable ‘inTopLeft’ [-Wunused-variable]
+         real inTopLeft=0;
+              ^
+/home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.c:436:14: warning: unused variable ‘v’ [-Wunused-variable]
+         real v=0;
+              ^
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop_cuda.c -o ./home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop_cuda.o -std=c99
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ ./_roi_crop.o ./home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop.o ./home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop_cuda.o /home/fhertan/mask-rcnn-videos/lib/model/roi_crop/src/roi_crop_cuda_kernel.cu.o -o ./_roi_crop.so
+Compiling roi align kernels by nvcc...
+Including CUDA code.
+/home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align
+generating /tmp/tmpv9bo5is0/_roi_align.c
+setting the current directory to '/tmp/tmpv9bo5is0'
+running build_ext
+building '_roi_align' extension
+creating home
+creating home/fhertan
+creating home/fhertan/mask-rcnn-videos
+creating home/fhertan/mask-rcnn-videos/lib
+creating home/fhertan/mask-rcnn-videos/lib/modeling
+creating home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom
+creating home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align
+creating home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c _roi_align.c -o ./_roi_align.o -std=c99
+gcc -pthread -B /usr/licensed/anaconda3/5.3.0/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DWITH_CUDA -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/TH -I/home/fhertan/.local/lib/python3.7/site-packages/torch/utils/ffi/../../lib/include/THC -I/usr/local/cuda/include -I/usr/licensed/anaconda3/5.3.0/include/python3.7m -c /home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src/roi_align_cuda.c -o ./home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src/roi_align_cuda.o -std=c99
+gcc -pthread -shared -B /usr/licensed/anaconda3/5.3.0/compiler_compat -L/usr/licensed/anaconda3/5.3.0/lib -Wl,-rpath=/usr/licensed/anaconda3/5.3.0/lib -Wl,--no-as-needed -Wl,--sysroot=/ ./_roi_align.o ./home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src/roi_align_cuda.o /home/fhertan/mask-rcnn-videos/lib/modeling/roi_xfrom/roi_align/src/roi_align_kernel.cu.o -o ./_roi_align.so
+Called with args:
+Namespace(batch_size=12, cfg_file='configs/baselines/e2e_mask_rcnn_R-50-C4_1x.yaml', cuda=True, dataset='coco2017', disp_interval=5, iter_size=1, load_ckpt=None, load_detectron=None, lr=None, lr_decay_gamma=None, no_save=False, num_workers=4, optimizer=None, resume=False, set_cfgs=[], start_step=0, use_tfboard=False)
+effective_batch_size = batch_size * iter_size = 12 * 1
+Adaptive config changes:
+    effective_batch_size: 8 --> 12
+    NUM_GPUS:             8 --> 4
+    IMS_PER_BATCH:        1 --> 3
+Adjust BASE_LR linearly according to batch_size change:
+    BASE_LR: 0.01 --> 0.015
+Adjust SOLVER.STEPS and SOLVER.MAX_ITER linearly based on effective_batch_size change:
+    SOLVER.STEPS: [0, 120000, 160000] --> [0, 80000, 106667]
+    SOLVER.MAX_ITER: 180000 --> 120000
+Number of data loading threads: 4
+loading annotations into memory...
+Done (t=14.25s)
+creating index...
+index created!
+INFO json_dataset.py: 298: Loading cached gt_roidb from /home/fhertan/mask-rcnn-videos/data/cache/coco_2017_train_gt_roidb.pkl
+INFO roidb.py:  50: Appending horizontally-flipped training examples...
+INFO roidb.py:  52: Loaded dataset: coco_2017_train
+INFO roidb.py: 143: Filtered 2042 roidb entries: 236574 -> 234532
+INFO roidb.py:  69: Computing image aspect ratios and ordering the ratios...
+INFO roidb.py:  71: done
+INFO roidb.py:  75: Computing bounding-box regression targets...
+INFO roidb.py:  77: done
+INFO train_net_step.py: 233: 234532 roidb entries
+INFO train_net_step.py: 234: Takes 184.98 sec(s) to construct roidb
+INFO train_net_step.py: 378: Training starts !
+INFO net.py:  72: Changing learning rate 0.000000 -> 0.005000
+/var/spool/slurmd/job607407/slurm_script: line 18: $'\177': command not found

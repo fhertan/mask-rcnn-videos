@@ -1,0 +1,13 @@
+make.sh: line 5: python3: command not found
+Compiling nms kernels by nvcc...
+make.sh: line 24: python3: command not found
+Compiling roi pooling kernels by nvcc...
+make.sh: line 33: python3: command not found
+Compiling roi crop kernels by nvcc...
+make.sh: line 51: python3: command not found
+Compiling roi align kernels by nvcc...
+make.sh: line 60: python3: command not found
+Traceback (most recent call last):
+  File "tools/train_net_step.py", line 13, in <module>
+    import yaml
+ImportError: No module named yaml
